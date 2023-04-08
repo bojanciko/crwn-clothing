@@ -5,6 +5,7 @@ import './sign-in-form.styles.scss'
 import Button from '../button/button.component'
 
 
+
 const defaultFormFields = {
   email: '',
   password: ''
@@ -15,6 +16,7 @@ const [formFields, setFormFields] = useState(defaultFormFields)
 
 const { email, password } = formFields;
 
+
 const resetFormFields = () => {
   setFormFields(defaultFormFields)
 }
@@ -24,8 +26,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await signInAuthWithEmailAndPassword(email, password)
-    console.log(response)
+    const {user} = await signInAuthWithEmailAndPassword(email, password)
     resetFormFields()
     
   } catch (error) {
@@ -54,8 +55,7 @@ const handleChange = (e) => {
 }
 
 const signInWithGoogle = async () => {
-  const {user} = await signInWithGooglePopup()
-  const userDocRef = await createUserDocumentFromAuth(user)
+  await signInWithGooglePopup()
 }
 
 

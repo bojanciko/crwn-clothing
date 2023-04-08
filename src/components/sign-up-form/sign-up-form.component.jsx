@@ -13,15 +13,17 @@ const defaultFormFields = {
 }
 
 const SignUp = () => {
+
 const [formFields, setFormFields] = useState(defaultFormFields)
 
 const { displayName, email, password, confirmPassword } = formFields;
+
 
 const resetFormFields = () => {
   setFormFields(defaultFormFields)
 }
 
-
+console.log('hit')
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (password !== confirmPassword) return
