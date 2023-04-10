@@ -1,6 +1,5 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './cart-item.styles.scss'
-import { CartContext } from '../../context/cart.context'
 
 
 const CartItem = ({cartItem}) => {
